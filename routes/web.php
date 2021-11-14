@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home', 'id');
 });
+
+Route::get('/{param}', 'FE\HomeController@index')->name('home');
+Route::get('/{param}/about', 'FE\AboutController@index')->name('about');
+Route::get('/{param}/service', 'FE\ServiceController@index')->name('service');
+Route::get('/{param}/news', 'FE\NewsController@index')->name('news');
+Route::get('/{param}/contact', 'FE\ContactController@index')->name('contact');
